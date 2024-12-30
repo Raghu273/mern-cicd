@@ -41,4 +41,4 @@ jobs:
         run: |
           cd mern-app/frontend
           npm install -g serve
-          serve -s build -i 3000
+          serve -s build -l 3000
