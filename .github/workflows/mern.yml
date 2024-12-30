@@ -17,7 +17,7 @@ jobs:
       - name: Checkout MERN App Repo
         uses: actions/checkout@v3
         with:
-          repository: Raghurk273/mernapp  # Repo with MERN code
+          repository: Abinaya-251/mernapp  # Repo with MERN code
           ref: dev-feature
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: mern-app
