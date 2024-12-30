@@ -27,16 +27,16 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: Install Dependencies for frontend
         run: |
-          cd mern-app
+          cd mern-app/frontend
           npm install
           cd client
           npm install
 
       - name: Build Frontend
         run: |
-          cd mern-app/client
+          cd mern-app/frontend
           npm run build
 
       - name: Deploy to GitHub Pages
