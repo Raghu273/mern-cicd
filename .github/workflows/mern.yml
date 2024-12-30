@@ -31,7 +31,7 @@ jobs:
         run: |
           cd mern-app/frontend
           npm install
-          cd client
+          cd frontend
           npm install
 
       - name: Build Frontend
@@ -44,4 +44,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./mern-app/client/build
+          publish_dir: ./mern-app/frontend/build
