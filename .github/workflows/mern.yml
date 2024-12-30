@@ -2,45 +2,41 @@ name: MERN App Deployment
 name: MERN App Deployment (Frontend + Backend on Ports 5000 and 5001)
 
 on:
-workflow_dispatch:  # Manual trigger
+  workflow_dispatch:  # Manual trigger
 @@ -27,18 +27,34 @@ jobs:
-with:
-node-version: 18
+        with:
+          node-version: 18
 
       - name: Install Dependencies for frontend
       # Install frontend dependencies and build
       - name: Install and Build Frontend
-run: |
-         cd mern-app/frontend
-         npm install
+        run: |
+          cd mern-app/frontend
+          npm install
           npm run build
-
       - name: Build Frontend
       # Install backend dependencies
       - name: Install Backend Dependencies
-run: |
+        run: |
           cd mern-app/frontend
           npm run build
           cd mern-app/backend
           npm install
-
       # Run Backend on Port 5000
       - name: Start Backend on Port 5000
         run: |
           cd mern-app/backend
           nohup env PORT=5000 node server.js > backend-5000.log 2>&1 &
-
       # Run Backend on Port 5001
       - name: Start Backend on Port 5001
         run: |
           cd mern-app/backend
           nohup env PORT=5001 node server.js > backend-5001.log 2>&1 &
-
       - name: Deploy to GitHub Pages
       # Deploy Frontend to Localhost (Port 3000)
       - name: Deploy Frontend
-run: |
-         cd mern-app/frontend
-         npm install -g serve
+        run: |
+          cd mern-app/frontend
+          npm install -g serve
           serve -s build -l 3000
-          nohup serve -s build -l 3000 
+          nohup serve -s build -l 3000 &
