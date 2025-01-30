@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Fetch Docker Hub credentials from Jenkins credentials store
         DOCKER_HUB_USERNAME = 'raghurk' // Your Docker Hub username
-        DOCKER_HUB_PASSWORD = credentials('docker-hub-credentials') // Stored in Jenkins credentials as password
+        DOCKER_HUB_PASSWORD = credentials('docker-hub') // Stored in Jenkins credentials as password
         FRONTEND_IMAGE = "raghurk/frontend-app" // Docker Hub frontend image
         BACKEND_IMAGE = "raghurk/backend-app"   // Docker Hub backend image
         EC2_HOST = "3.110.163.150"   // EC2 instance public IP
